@@ -78,6 +78,9 @@ class WrapSpawner(Spawner):
                 config = self.config,
                 **self.child_config
                 )
+            # add here!!! to fix JUPYTERHUB_SERVICE_PREFIX  problem
+            self.child_spawner.server = self._server
+
             # initial state will always be wrong since it will see *our* state
             self.child_spawner.clear_state()
             if self.child_state:
@@ -312,4 +315,3 @@ class DockerProfilesSpawner(ProfilesSpawner):
 
 
 # vim: set ai expandtab softtabstop=4:
-
